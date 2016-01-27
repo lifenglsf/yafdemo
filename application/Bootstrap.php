@@ -2,6 +2,7 @@
 class Bootstrap extends Yaf_Bootstrap_Abstract{
 	public function _initSession(Yaf_Dispatcher $dispatcher){
 		Yaf_Session::getInstance() -> start();
+		header("Cache-control:private");
 		header('content-type:text/html;charset=utf-8');
 	}
 
@@ -19,15 +20,19 @@ class Bootstrap extends Yaf_Bootstrap_Abstract{
 	}
 
 	public function _initRoute(Yaf_Dispatcher $dispatcher){
-		$router = Yaf_Dispatcher::getInstance() -> getRouter();
-		$route = new Yaf_Route_Rewrite(
-			'exp/:ident',
-			array(
-				'controller' =>'index',
-				'action' => 'index'
-			)
-		);
-		$router -> addRoute('exp',$route);
+		$router = $dispatcher -> getRouter();
+		//$router->addConfig(Yaf_Registry::get("config")->routes);
+
+		//$route = new Yaf_Route_Rewrite(
+		//	'exp/:ident',
+		//	array(
+		//		'controller' =>'index',
+		//		'action' => 'index'
+		//	)
+		//);
+		//$router -> addRoute('exp',$route);
+		$route = new Yaf_Route_Rewrite('/admin/:action/:id',array('controller' => 'admin','action' => ':action'));
+		$router -> addRoute('name',$route);
 	}
 	
 	public function _initLibrary(){

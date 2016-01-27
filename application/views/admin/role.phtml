@@ -1,17 +1,23 @@
+<?php include 'common/admin/header.phtml';?>
+<p class="lead">
+	<a href="/admin/addRole">添加权限</a>
+</p>
 <table class="table table-responsive">
 	<thead>
 		<th>模块名称</th>
 		<th>控制器名称</th>
 		<th>action名称</th>
-		<th>
+		<th>操作</th>
 	</thead>
 	<tbody>
-		<?php foreach($list as $k =>$v){)?>
+		<?php foreach($list as $k =>$v){?>
 		<tr>
-			<td><?php echo $modulename;?></td>
-			<td><?php echo $controllername;?></td>
-			<td><?pp echo $actioname;?></td>
+			<td><?php echo $v['modulename'];?></td>
+			<td><?php echo $v['controllername'];?></td>
+			<td><?php echo $v['actioname'];?></td>
+			<td><a href="/admin/editRole/<?php echo $v['id'];?>">编辑</a></td>
 		</tr>
 		<?php }?>
 	</tbody>
 </table>
+<?php include 'common/admin/footer.phtml';?>

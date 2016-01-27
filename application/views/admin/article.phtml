@@ -1,0 +1,23 @@
+<?php include 'common/admin/header.phtml';?>
+<p class="lead">
+<a href="/admin/addArticle">添加文章</a>
+</p>
+<table class="table table-responsive">
+<thead>
+<tr>
+<th>文章标题</th>
+<th>文章分类</th>
+<th>操作</th>
+</tr>
+</thead>
+<tbody>
+<?php foreach($list as $k =>$v){?>
+<tr>
+<td><?php echo $v['title'];?></td>
+<td><?php echo $v['name'];?></td>
+<td><a href="/admin/editArticle/<?php echo $v['id'];?>">编辑</a>|<a href="/admin/delArticle/<?php echo $v['id']?>" onclick="confirm('确定要删除这篇文章吗');">删除</a></td>
+</tr>
+<?php }?>
+</tbody>
+</table>
+<?php include 'common/admin/footer.phtml';?>

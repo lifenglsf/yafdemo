@@ -1,0 +1,21 @@
+<?php include 'common/admin/header.phtml';?>
+<p class="lead">
+<a href="/admin/addUser">添加用户</a>
+</p>
+	<table class="table table-responsive">
+		<thead>
+			<th>id</th>
+			<th>用户名</th>
+			<th>操作</th>
+		</thead>
+		<tbody>
+			<?php foreach($list as $k =>$v){?>
+				<tr>
+					<td><?php echo $v['id'];?></td>
+					<td><?php echo $v['username'];?></td>
+					<td><a href="/admin/setrole/<?php echo $v['id'];?>">设置权限</a></td>
+				</tr>
+			<?php }?>
+		<tbody>
+	</table>
+<?php include 'common/admin/footer.phtml';?>

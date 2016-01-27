@@ -1,0 +1,41 @@
+<?php include 'common/admin/header.phtml';?>
+<form name="setRole" method="POST" class="form-horizontal">
+<div class="form-group">
+	<label class="control-label col-sm-2">用户名</label>
+	<div class="col-sm-10">
+		<div class="form-control">	<?php echo $user['username'];?></div>
+	</div>
+</div>
+<div class="form-group">
+	<label class="control-label col-sm-2">权限列表</label>
+	<div class="col-sm-10">
+		<table class="table table-bordered table-responsive">
+			<thead>
+				<tr>
+					<th>模块名称</th>
+					<th>控制器名称</th>
+					<th>action名称</th>
+					<th>是否选择</th>
+				</tr>
+			</thead>
+			<tbody>
+				<?php foreach($roleList as $k =>$v){?>
+				<tr>
+					<td><?php echo $v['modulename'];?></td>
+					<td><?php echo $v['controllername'];?></td>
+					<td><?php echo $v['actioname'];?></td>
+					<td><input type="checkbox" name="ischeck[]" value="<?php echo $v['id'];?>" <?php if(in_array($v['id'],$userrole)){echo 'checked';}?>></td>
+				</tr>
+				<?php }?>
+			</tbody>
+			</tfoot>
+		</table>
+	</div>
+</div>
+<div class="form-group">
+	<div class="col-sm-10 col-sm-offset-2">
+		<button class="btn btn-primary">提交</button>
+	</div>
+</div>
+</form>
+<?php include 'common/admin/footer.phtml';?>

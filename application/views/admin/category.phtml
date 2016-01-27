@@ -1,0 +1,23 @@
+<?php include 'common/admin/header.phtml';?>
+<p class="lead">
+<a href="/admin/addCategory">添加分类</a>
+</p>
+<table class="table table-responsive">
+	<thead>
+		<th>名称</th>
+		<th>是否发布多内容</th>
+		<th>操作</th>
+	</thead>
+	
+	<tbody>
+		<?php foreach($list as $k =>$v){?>
+			<tr>
+				<td><?php echo $v['name'];?></td>
+				<td><?php if($v['ismulti'] == 1){echo "单条内容";}elseif($v['ismulti'] == 2){echo "多条内容";}?></td>
+				<td><a href="/admin/editCategory/<?php echo $v['id'];?>">编辑</a></td>
+			</tr>
+		<?php }?>
+	</tbody>
+
+</table>
+<?php include 'common/admin/footer.phtml';?>
