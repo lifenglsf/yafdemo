@@ -1,0 +1,21 @@
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Error Page <?php echo $code; ?></title>
+    <style>
+        body {
+            background-color: #f0c040
+        }
+
+        h2 {
+            color: #fafafa
+        }
+    </style>
+</head>
+<body>
+<h2>Error Page</h2>
+<p>Error Code:<?php echo $code; ?></p>
+<p>Error Message:<?php echo $message; ?></p>
+<p>Error Line:<?php echo $line; ?></p>
+</body>
+</html>

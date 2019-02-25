@@ -1,0 +1,8 @@
+<?php include 'common/admin/header.phtml';?>
+<?php if($info['error']){?>
+<div class="alert alert-danger"><?php echo $info['msg']?></div>
+<a href="javascript:history.go(-1);">返回</a>
+<?php }else {?>
+<div class="alert alert-success"><?php echo $info['msg']?></div>
+<?php }?>
+<?php include 'common/admin/footer.phtml'?>
