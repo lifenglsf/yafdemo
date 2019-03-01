@@ -22,27 +22,12 @@ class ErrorController extends Yaf_Controller_Abstract
             case YAF_ERR_NOTFOUND_MODULE:
             case YAF_ERR_NOTFOUND_VIEW:
                 $this->getView()->display('common/404.phtml');
+                //exit;
                 break;
             default:
                 $this->getView()->display('error/error.phtml');
                 break;
         }
-        /* $this->getView()->assign("code", $exception->getCode());
-         $this->getView()->assign("message", $exception->getMessage());
-         $this->getView()->assign("line", $exception->getLine());*/
-        /* error occurs */
-        /*    switch ($exception->getCode()) {
-                case YAF_ERR_NOTFOUND_MODULE:
-                case YAF_ERR_NOTFOUND_CONTROLLER:
-                case YAF_ERR_NOTFOUND_ACTION:
-                case YAF_ERR_NOTFOUND_VIEW:
-                    $this->getView()->display('common/404.phtm');
-                    break;
-                default :
-                    $this->getView()->display('common/error.phtm');
-                    $message = $exception->getMessage();
-                    echo 0, ":", $exception->getMessage();
-                    break;
-            }*/
+        exit;
     }
 }

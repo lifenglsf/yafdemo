@@ -10,14 +10,6 @@ class Bootstrap extends Yaf_Bootstrap_Abstract
         header('content-type:text/html;charset=utf-8');
     }
 
-    public static function error_handler($errno, $errstr, $errfile, $errline)
-    {
-        if (error_reporting() === 0) {
-            return;
-        }
-        throw new ErrorException($errstr, 0, $errno, $errfile, $errline);
-    }
-
 
     public function _initConfig()
     {
@@ -71,11 +63,5 @@ class Bootstrap extends Yaf_Bootstrap_Abstract
     {
 
     }
-
-    public function _initErrorHandler(Yaf_Dispatcher $dispatcher)
-    {
-        $dispatcher->setErrorHandler(array(get_class($this), 'error_handler'));
-    }
-
 
 }
